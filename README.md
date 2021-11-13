@@ -1,3 +1,5 @@
+![GitHub Actions](https://github.com/olegTervo/ohtu-2021-viikko1/workflows/CI/badge.svg)
+  
 Poetry ei toiminut fuksilaitella koska python 3.5 on käytössä ja ei ole sudo oikeutta  
 Poetry ei myös toiminut Windows 10:llä. Tuli virhe komennolla "poetry install"  
 Olin alkanut kotitehtävän tekemisen liian myöhässä, niin ei ole aika saada toisen linux-koneen toimimaan.  
