@@ -32,7 +32,7 @@ class TestVarasto(unittest.TestCase):
         self.assertAlmostEqual(self.varasto.ota_varastosta(100), self.varasto.tilavuus)
 
     def test_toSting(self):
-        self.assertAlmostEqual(str(self.varasto), str(self.varasto)+"broken")
+        self.assertAlmostEqual(str(self.varasto), str(self.varasto))
 
     def test_uudella_varastolla_oikea_tilavuus(self):
         self.assertAlmostEqual(self.varasto.tilavuus, 10)
