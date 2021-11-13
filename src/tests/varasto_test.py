@@ -22,7 +22,7 @@ class TestVarasto(unittest.TestCase):
         self.assertAlmostEqual(self.varasto.saldo, 0)
 
     def test_lisaminen(self):
-        self.varasto.lisaa_varastoon(-1);
+        self.varasto.lisaa_varastoon(-2);
         self.varasto.lisaa_varastoon(100);
         self.assertAlmostEqual(self.varasto.saldo, self.varasto.tilavuus)
 
