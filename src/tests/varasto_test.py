@@ -5,10 +5,34 @@ from varasto import Varasto
 class TestVarasto(unittest.TestCase):
     def setUp(self):
         self.varasto = Varasto(10)
+        self.varastoHuono = Varasto(-1, -1)
+        self.varastoIsoSaldo = Varasto(1, 2)
+
+    def test_konstruktori_luo_varaston_isolla_saldolla(self):
+        self.assertAlmostEqual(self.varastoIsoSaldo.saldo, self.varastoIsoSaldo.tilavuus)
+
+    def test_konstruktori_luo_varaston_vaaralla_tilavuudella(self):
+        self.assertAlmostEqual(self.varastoHuono.tilavuus, 0)
+
+    def test_konstruktori_luo_vaaralla_alkusaldolla(self):
+        self.assertAlmostEqual(self.varastoHuono.saldo, 0)
 
     def test_konstruktori_luo_tyhjan_varaston(self):
         # https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertAlmostEqual
         self.assertAlmostEqual(self.varasto.saldo, 0)
+
+    def test_lisaminen(self):
+        self.varasto.lisaa_varastoon(-1);
+        self.varasto.lisaa_varastoon(100);
+        self.assertAlmostEqual(self.varasto.saldo, self.varasto.tilavuus)
+
+    def test_poistaminen(self):
+        self.varasto.lisaa_varastoon(self.varasto.tilavuus)
+        self.assertAlmostEqual(self.varasto.ota_varastosta(-1), 0)
+        self.assertAlmostEqual(self.varasto.ota_varastosta(100), self.varasto.tilavuus)
+
+    def test_toSting(self):
+        self.assertAlmostEqual(str(self.varasto), str(self.varasto))
 
     def test_uudella_varastolla_oikea_tilavuus(self):
         self.assertAlmostEqual(self.varasto.tilavuus, 10)
